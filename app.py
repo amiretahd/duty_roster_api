@@ -3,12 +3,15 @@ import schedule
 import os
 import time
 import datetime
+import ssl 
 import pandas as pd
 from slack_sdk import WebClient
 from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 slack_token = os.getenv("SLACK_BOT_TOKEN", default=None)
 print("TOOOOKEEEEN" ,slack_token)
